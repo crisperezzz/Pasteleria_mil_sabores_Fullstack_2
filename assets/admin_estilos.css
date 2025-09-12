@@ -1,0 +1,90 @@
+/* === Tipografías === */
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #FFF5E1; /* Fondo crema pastel */
+  color: #5D4037; /* Texto marrón oscuro */
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(135deg, #FFC0CB, #8B4513); /* Rosa suave y chocolate */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Pacifico', cursive; /* Fuente para encabezado */
+  border-bottom: 4px solid #8B4513;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #FFF5E1;
+}
+
+/* Tarjetas (cards) */
+.card {
+  background: white;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  color: #8B4513; /* Chocolate */
+  margin-bottom: 10px;
+  font-family: 'Pacifico', cursive;
+}
+
+.secundario {
+  color: #B0BEC5; /* Gris claro */
+}
+
+/* Botones */
+button {
+  background: #FFC0CB; /* Rosa suave */
+  color: #5D4037;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 1em;
+  transition: transform 0.2s, background 0.3s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+button:hover {
+  background: #FF99B3;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+  background: #FFEDE0;
+  border-top: 2px solid #FFC0CB;
+  color: #5D4037;
+}
