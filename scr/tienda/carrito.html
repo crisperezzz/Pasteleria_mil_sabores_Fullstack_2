@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Pastelería Mil Sabores</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Pastelería Mil Sabores</h1>
+            <nav>
+                <a href="/index.html">Inicio</a>
+                <a href="/scr/tienda/productos.html">Productos</a>
+                <a href="/scr/tienda/nosotros.html">Nosotros</a>
+                <a href="/scr/tienda/blogs.html">Blog</a>
+                <a href="/scr/tienda/contacto.html">Contacto</a>
+                <a href="/scr/tienda/login.html">Login</a>
+                <a href="/scr/tienda/carrito.html">Carrito (<span id="contador-carrito">0</span>)</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Tu Carrito de Compras</h2>
+            
+            <div id="carrito-container">
+                <p>Tu carrito está vacío</p>
+            </div>
+            
+            <div id="total-container" style="display: none;">
+                <h3>Total: $<span id="total-precio">0</span></h3>
+                <button onclick="procesarCompra()" class="btn-primary">Procesar Compra</button>
+                <button onclick="vaciarCarrito()" class="btn-secondary">Vaciar Carrito</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Pastelería Mil Sabores</p>
+        </div>
+    </footer>
+
+    <script src="js/carrito.js"></script>
+    <script>
+        function mostrarCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const container = document.getElementById('carrito-container');
+            const totalContainer = document.getElementById('total-container');
+            
+            if (carrito.length === 0) {
+                container.innerHTML = '<p>Tu carrito está vacío</p>';
+                totalContainer.style.display = 'none';
+                return;
+            }
+            
+            let html = '';
+            let total = 0;
+            
+            carrito.forEach(item => {
+                const subtotal = item.precio * item.cantidad;
+                total += subtotal;
+                
+                html += `
+                    <div class="carrito-item">
+                        <img src="${item.imagen}" alt="${item.nombre}" width="80">
+                        <div>
+                            <h4>${item.nombre}</h4>
+                            <p>$${item.precio.toLocaleString('es-CL')} x ${item.cantidad}</p>
+                        </div>
+                        <p>$${subtotal.toLocaleString('es-CL')}</p>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            document.getElementById('total-precio').textContent = total.toLocaleString('es-CL');
+            totalContainer.style.display = 'block';
+        }
+        
+        function procesarCompra() {
+            alert('¡Compra procesada con éxito!');
+            vaciarCarrito();
+            window.location.href = 'index.html';
+        }
+        
+        // Mostrar carrito al cargar la página
+        document.addEventListener('DOMContentLoaded', mostrarCarrito);
+    </script>
+</body>
+</html>

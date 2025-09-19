@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Producto - Pastelería Mil Sabores</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Pastelería Mil Sabores</h1>
+            <nav>
+                <a href="/index.html">Inicio</a>
+                <a href="/scr/tienda/productos.html">Productos</a>
+                <a href="/scr/tienda/nosotros.html">Nosotros</a>
+                <a href="/scr/tienda/blogs.html">Blog</a>
+                <a href="/scr/tienda/contacto.html">Contacto</a>
+                <a href="/scr/tienda/login.html">Login</a>
+                <a href="/scr/tienda/carrito.html">Carrito (<span id="contador-carrito">0</span>)</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="detalle-producto" class="producto-detalle">
+                <!-- El contenido se carga dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Pastelería Mil Sabores - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/carrito.js"></script>
+    <script>
+        // Cargar detalle del producto basado en el ID de la URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id'));
+            
+            if (productId) {
+                cargarDetalleProducto(productId);
+            } else {
+                document.getElementById('detalle-producto').innerHTML = `
+                    <p class="error">Producto no encontrado</p>
+                    <a href="productos.html" class="btn-primary">Volver a Productos</a>
+                `;
+            }
+        });
+
+        function cargarDetalleProducto(id) {
+            // Buscar en todos los productos
+            const todosProductos = [...productosDestacados, ...productosCompletos];
+            const producto = todosProductos.find(p => p.id === id);
+            
+            const container = document.getElementById('detalle-producto');
+            
+            if (producto) {
+                container.innerHTML = `
+                    <div class="producto-imagen">
+                        <img src="${producto.imagen}" alt="${producto.nombre}" onerror="this.src='images/placeholder.jpg'">
+                    </div>
+                    <div class="producto-info">
+                        <h2>${producto.nombre}</h2>
+                        <p class="producto-codigo">Código: ${producto.codigo}</p>
+                        <p class="producto-categoria">Categoría: ${producto.categoria}</p>
+                        <p class="producto-precio">$${producto.precio.toLocaleString('es-CL')}</p>
+                        <p class="producto-descripcion">${producto.descripcion}</p>
+                        
+                        <div class="producto-acciones">
+                            <button onclick="agregarAlCarrito(${producto.id})" class="btn-primary">
+                                Añadir al Carrito
+                            </button>
+                            <a href="productos.html" class="btn-secondary">Volver a Productos</a>
+                        </div>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <p class="error">Producto no encontrado</p>
+                    <a href="productos.html" class="btn-primary">Volver a Productos</a>
+                `;
+            }
+        }
+    </script>
+    <script src="/assets/js/utils.js"></script> 
+    <script src="/assets/js/carrito.js"></script>
+</body>
+</html>

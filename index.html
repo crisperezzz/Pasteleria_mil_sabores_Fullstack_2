@@ -1,11 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PASTELERIA :D</title>
+    <title>Pastelería Mil Sabores - Inicio</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <h1>Pastelería Mil Sabores</h1>
+            <nav>
+                <a href="/index.html">Inicio</a>
+                <a href="/scr/tienda/productos.html">Productos</a>
+                <a href="/scr/tienda/nosotros.html">Nosotros</a>
+                <a href="/scr/tienda/blogs.html">Blog</a>
+                <a href="/scr/tienda/contacto.html">Contacto</a>
+                <a href="/scr/tienda/login.html">Login</a>
+                <a href="/scr/tienda/carrito.html">Carrito (<span id="contador-carrito">0</span>)</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>¡Bienvenido a nuestra pastelería!</h2>
+                <p>50 años endulzando tus momentos especiales</p>
+                <a href="/scr/tienda/productos.html" class="btn-primary">Ver Productos</a>
+            </div>
+        </section>
+
+        <section class="productos-destacados">
+            <div class="container">
+                <h2>Nuestros Productos Destacados</h2>
+                <div id="productos-container" class="productos-grid"></div>
+            </div>
+        </section>
+
+        <section class="promociones">
+            <div class="container">
+                <h2>Promociones Especiales</h2>
+                <div class="promo-cards">
+                    <div class="promo-card">
+                        <h3>50% OFF</h3>
+                        <p>Para mayores de 50 años</p>
+                    </div>
+                    <div class="promo-card">
+                        <h3>10% OFF</h3>
+                        <p>Con código: FELICES50</p>
+                    </div>
+                    <div class="promo-card">
+                        <h3>Torta FREE</h3>
+                        <p>Estudiantes Duoc en cumpleaños</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Pastelería Mil Sabores - Todos los derechos reservados</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
     
+    <script src="/assets/js/productos-destacados.js" defer></script>
+    <script src="/assets/js/carrito.js"></script>
 </body>
 </html>
