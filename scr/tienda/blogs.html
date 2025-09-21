@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Pastelería Mil Sabores</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Pastelería Mil Sabores</h1>
+            <nav>
+                <a href="/index.html">Inicio</a>
+                <a href="/scr/tienda/productos.html">Productos</a>
+                <a href="/scr/tienda/nosotros.html">Nosotros</a>
+                <a href="/scr/tienda/blogs.html">Blog</a>
+                <a href="/scr/tienda/contacto.html">Contacto</a>
+                <a href="/scr/tienda/login.html">Login</a>
+                <a href="/scr/tienda/carrito.html">Carrito (<span id="contador-carrito">0</span>)</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Nuestro Blog</h2>
+            <p class="blog-subtitle">Descubre las últimas noticias y tips de repostería</p>
+            
+            <div class="blog-grid" id="blog-container">
+                <!-- Los blogs se cargan dinámicamente -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Pastelería Mil Sabores - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/carrito.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            cargarBlogs();
+        });
+
+        function cargarBlogs() {
+            const blogs = obtenerBlogs();
+            const container = document.getElementById('blog-container');
+            
+            let html = '';
+            
+            blogs.forEach(blog => {
+                html += `
+                    <article class="blog-card">
+                        <img src="${blog.imagen}" alt="${blog.titulo}" onerror="this.src='images/placeholder.jpg'">
+                        <div class="blog-content">
+                            <h3>${blog.titulo}</h3>
+                            <p class="blog-date">${blog.fecha}</p>
+                            <p class="blog-resumen">${blog.resumen}</p>
+                            <a href="detalle-blog.html?id=${blog.id}" class="blog-link">Leer más</a>
+                        </div>
+                    </article>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+    </script>
+    <script src="/assets/js/utils.js"></script> 
+    <script src="/assets/js/carrito.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Pastelería Mil Sabores</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Pastelería Mil Sabores</h1>
+            <nav>
+                <a href="/index.html">Inicio</a>
+                <a href="/scr/tienda/productos.html">Productos</a>
+                <a href="/scr/tienda/nosotros.html">Nosotros</a>
+                <a href="/scr/tienda/blogs.html">Blog</a>
+                <a href="/scr/tienda/contacto.html">Contacto</a>
+                <a href="/scr/tienda/login.html">Login</a>
+                <a href="/scr/tienda/carrito.html">Carrito (<span id="contador-carrito">0</span>)</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Todos Nuestros Productos</h2>
+            
+            <div class="filtros">
+                <button onclick="filtrarPorCategoria('todos')" class="btn-filter active">Todos</button>
+                <button onclick="filtrarPorCategoria('Tortas Cuadradas')" class="btn-filter">Tortas Cuadradas</button>
+                <button onclick="filtrarPorCategoria('Tortas Circulares')" class="btn-filter">Tortas Circulares</button>
+                <button onclick="filtrarPorCategoria('Postres Individuales')" class="btn-filter">Postres Individuales</button>
+                <button onclick="filtrarPorCategoria('Productos Sin Azúcar')" class="btn-filter">Sin Azúcar</button>
+                <button onclick="filtrarPorCategoria('Pastelería Tradicional')" class="btn-filter">Tradicional</button>
+            </div>
+            
+            <div id="productos-list" class="productos-grid"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Pastelería Mil Sabores - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/productos-completos.js"></script>
+    <script src="assets/js/carrito.js"></script>
+</body>
+</html>
