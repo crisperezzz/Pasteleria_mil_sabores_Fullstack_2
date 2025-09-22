@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Usuarios - Admin Mil Sabores</title>
+  <link rel="stylesheet" href="css/admin_estilos.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #FFC0CB;
+      color: #5D4037;
+    }
+
+    tr:hover {
+      background-color: #FFF0F5;
+    }
+
+    .acciones button {
+      margin-right: 8px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #8B4513;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    .acciones button:hover {
+      background-color: #A0522D;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Listado de Usuarios</h1>
+  </header>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>RUN</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Tipo</th>
+          <th>Región</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tablaUsuarios">
+        <!-- Usuarios insertados con JS -->
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    const usuarios = [
+      { run: "19011022K", nombre: "Ana Pérez", correo: "ana@duoc.cl", tipo: "Cliente", region: "Metropolitana" },
+      { run: "18233456K", nombre: "Luis Soto", correo: "luis@profesor.duoc.cl", tipo: "Administrador", region: "Valparaíso" },
+      { run: "20345678K", nombre: "María López", correo: "maria@gmail.com", tipo: "Vendedor", region: "Biobío" }
+    ];
+
+    const tabla = document.getElementById("tablaUsuarios");
+
+    usuarios.forEach(user => {
+      const fila = document.createElement("tr");
+
+      fila.innerHTML = `
+        <td>${user.run}</td>
+        <td>${user.nombre}</td>
+        <td>${user.correo}</td>
+        <td>${user.tipo}</td>
+        <td>${user.region}</td>
+        <td class="acciones">
+          <button onclick="editarUsuario('${user.run}')">Editar</button>
+          <button onclick="eliminarUsuario('${user.run}')">Eliminar</button>
+        </td>
+      `;
+
+      tabla.appendChild(fila);
+    });
+
+    function editarUsuario(run) {
+      alert(`Editar usuario: ${run}`);
+      // Aquí puedes redirigir a nuevo_usuario.html con datos precargados
+    }
+
+    function eliminarUsuario(run) {
+      const confirmar = confirm(`¿Eliminar usuario ${run}?`);
+      if (confirmar) {
+        alert(`Usuario ${run} eliminado (simulado)`);
+        // Aquí puedes eliminar del arreglo y actualizar la tabla
+      }
+    }
+  </script>
+</body>
+</html>

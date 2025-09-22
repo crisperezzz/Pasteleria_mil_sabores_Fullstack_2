@@ -2,46 +2,74 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Administración - Mil Sabores</title>
+  <title>Panel Administrativo - Mil Sabores</title>
+  <link rel="stylesheet" href="css/admin_estilos.css">
+  <style>
+    /* Estilos básicos para el menú vertical */
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
 
-  <!-- 1️⃣ Google Fonts: PONER AQUÍ, antes de tu CSS -->
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    nav {
+      width: 220px;
+      background-color: #8B4513;
+      color: white;
+      padding: 20px;
+    }
 
-  <!-- 2️⃣ Tu CSS -->
-  <link rel="stylesheet" href="../../assets/admin_estilos.css">
+    nav h2 {
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-bottom: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #FFC0CB;
+      color: #5D4037;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px;
+      background-color: #FFF5E1;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Mil Sabores - Panel Administrativo</h1>
+  <div class="container">
     <nav>
+      <h2>Mil Sabores</h2>
       <ul>
-        <li><a href="../../index.html">Inicio</a></li>
-        <li><a href="#">Inventario</a></li>
-        <li><a href="#">Pedidos</a></li>
-        <li><a href="#">Empleados</a></li>
-        <li><a href="#">Reportes</a></li>
+        <li><a href="productos.html">📦 Productos</a></li>
+        <li><a href="nuevo_producto.html">➕ Nuevo Producto</a></li>
+        <li><a href="usuarios.html">👥 Usuarios</a></li>
+        <li><a href="nuevo_usuario.html">➕ Nuevo Usuario</a></li>
       </ul>
     </nav>
-  </header>
 
-  <main>
-    <section class="card">
-      <h2>Gestión de Inventario</h2>
-      <p class="secundario">Desde aquí puedes gestionar el stock de pasteles, agregar nuevos productos y actualizar cantidades.</p>
-      <button id="btnInventario">Actualizar Inventario</button>
-    </section>
-
-    <section class="card">
-      <h2>Impacto Comunitario</h2>
-      <p class="secundario">Resaltamos cómo las compras apoyan a los estudiantes de gastronomía y la comunidad local.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Mil Sabores | Administración</p>
-  </footer>
-
-  <script src="../../assets/admin_script.js"></script>
+    <main>
+      <h1>Bienvenido al Panel Administrativo</h1>
+      <p>Desde aquí puedes gestionar los productos y usuarios de la tienda Mil Sabores.</p>
+    </main>
+  </div>
 </body>
 </html>
