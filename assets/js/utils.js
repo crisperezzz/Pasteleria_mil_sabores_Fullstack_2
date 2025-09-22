@@ -16,12 +16,28 @@ function obtenerParametroURL(nombre) {
 
 // Función para mostrar notificaciones
 function mostrarNotificacion(mensaje, tipo = 'info') {
+    // Eliminar notificaciones existentes
+    document.querySelectorAll('.notificacion').forEach(notif => notif.remove());
+    
     const notification = document.createElement('div');
     notification.className = `notificacion notificacion-${tipo}`;
     notification.innerHTML = `
         <p>${mensaje}</p>
-        <button onclick="this.parentElement.remove()">×</button>
+        <button class="notificacion-close" onclick="this.parentElement.remove()">×</button>
     `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto-eliminar después de 5 segundos
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 5000);
+
+
+// Hacerla disponible globalmente
+window.mostrarNotificacion = mostrarNotificacion;
     
     // Estilos para la notificación
     notification.style.cssText = `
@@ -215,4 +231,20 @@ function agregarEventListenerSeguro(selector, evento, callback) {
     if (elemento) {
         elemento.addEventListener(evento, callback);
     }
+}
+
+// Función para clasificar imágenes según su orientación (disponible globalmente)
+window.clasificarImagen = function(img) {
+    const container = img.parentElement;
+    container.classList.add('loaded');
+    
+    // Pequeño retraso para asegurar que la imagen esté cargada
+    setTimeout(() => {
+        if (img.naturalWidth > img.naturalHeight) {
+            container.classList.add('img-horizontal');
+        } else if (img.naturalHeight > img.naturalWidth) {
+            container.classList.add('img-vertical');
+        }
+        // Si es cuadrada, no añade clase adicional
+    }, 100);
 }

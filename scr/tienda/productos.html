@@ -10,7 +10,10 @@
 <body>
     <header>
         <div class="header-container">
-            <h1>Pastelería Mil Sabores</h1>
+            <div class="logo-container">
+                <img src="/assets/images/logo.png" alt="Pastelería Mil Sabores" class="logo">
+                <h1>Pastelería Mil Sabores</h1>
+            </div>
             <nav>
                 <a href="/index.html">Inicio</a>
                 <a href="/scr/tienda/productos.html">Productos</a>
@@ -24,29 +27,40 @@
     </header>
 
     <main>
-        <div class="container">
-            <h2>Todos Nuestros Productos</h2>
-            
-            <div class="filtros">
-                <button onclick="filtrarPorCategoria('todos')" class="btn-filter active">Todos</button>
-                <button onclick="filtrarPorCategoria('Tortas Cuadradas')" class="btn-filter">Tortas Cuadradas</button>
-                <button onclick="filtrarPorCategoria('Tortas Circulares')" class="btn-filter">Tortas Circulares</button>
-                <button onclick="filtrarPorCategoria('Postres Individuales')" class="btn-filter">Postres Individuales</button>
-                <button onclick="filtrarPorCategoria('Productos Sin Azúcar')" class="btn-filter">Sin Azúcar</button>
-                <button onclick="filtrarPorCategoria('Pastelería Tradicional')" class="btn-filter">Tradicional</button>
+        <section class="productos-destacados">
+            <div class="container">
+                <h2>Todos Nuestros Productos</h2>
+                
+                <div class="filtros">
+                    <button onclick="filtrarPorCategoria('todos')" class="btn-filter active">Todos</button>
+                    <button onclick="filtrarPorCategoria('Tortas Cuadradas')" class="btn-filter">Tortas Cuadradas</button>
+                    <button onclick="filtrarPorCategoria('Tortas Circulares')" class="btn-filter">Tortas Circulares</button>
+                    <button onclick="filtrarPorCategoria('Postres Individuales')" class="btn-filter">Postres Individuales</button>
+                    <button onclick="filtrarPorCategoria('Productos Sin Azúcar')" class="btn-filter">Sin Azúcar</button>
+                    <button onclick="filtrarPorCategoria('Pastelería Tradicional')" class="btn-filter">Tradicional</button>
+                    <button onclick="filtrarPorCategoria('Productos Sin Gluten')" class="btn-filter">Sin Gluten</button>
+                    <button onclick="filtrarPorCategoria('Productos Veganos')" class="btn-filter">Veganos</button>
+                    <button onclick="filtrarPorCategoria('Tortas Especiales')" class="btn-filter">Especiales</button>
+                </div>
+                
+                <div id="productos-container" class="productos-grid"></div>
             </div>
-            
-            <div id="productos-list" class="productos-grid"></div>
-        </div>
+        </section>
     </main>
 
     <footer>
         <div class="footer-container">
             <p>&copy; 2024 Pastelería Mil Sabores - Todos los derechos reservados</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
         </div>
     </footer>
 
-    <script src="assets/js/productos-completos.js"></script>
-    <script src="assets/js/carrito.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/carrito.js"></script>
+    <script src="/assets/js/productos-completos.js"></script>
 </body>
 </html>
