@@ -22,6 +22,8 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(45deg, #f8f8f8 0%, #e8e8e8 100%);
+    position: relative;
+    padding: 0.5rem; /*padding para que no toquen los bordes */
 }
 
 .producto-card img {
@@ -161,48 +163,29 @@
 .producto-card-image-container img {
     width: auto;
     height: auto;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 95%;
+    max-height: 95%;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-/* Ajuste específico para imágenes verticales */
-.producto-card-image-container.img-vertical img {
-    width: auto;
-    height: 90%;
-}
-
-/* Ajuste específico para imágenes horizontales */
-.producto-card-image-container.img-horizontal img {
-    width: 90%;
-    height: auto;
-}
 
 /* Efecto hover suave */
 .producto-card:hover .producto-card-image-container img {
     transform: scale(1.05);
 }
 
-/* Mejora para productos destacados */
-.productos-destacados .producto-card-image-container {
-    height: 180px;
-    padding: 0.5rem;
-}
-
-.productos-destacados .producto-card-image-container img {
-    max-height: 160px;
-    max-width: 90%;
-}
 
 /* Mejora para grid de productos normales */
 #productos-list .producto-card-image-container {
     height: 190px;
+    padding: 0.5rem;
 }
 
 #productos-list .producto-card-image-container img {
     max-height: 170px;
     max-width: 95%;
+    object-fit: contain;
 }
 
 /* Detalle de producto - imagen completa */
@@ -241,6 +224,7 @@
 #productos-container .producto-card-image-container {
     height: 160px;
     margin-bottom: 0.8rem;
+    padding: 0.5rem;
 }
 
 #productos-container .producto-card h3 {
@@ -317,8 +301,9 @@
 }
 
 #productos-container .producto-card-image-container img {
-    max-height: 160px;
+    max-height: 140px;
     max-width: 90%;
+    object-fit: contain;
 }
 
 /* Estilos específicos para la página de productos */
@@ -411,7 +396,3 @@
     padding: 0.5rem;
 }
 
-#productos-container .producto-card-image-container img {
-    max-height: 160px;
-    max-width: 90%;
-}
