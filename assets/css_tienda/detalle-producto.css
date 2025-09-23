@@ -1,0 +1,69 @@
+/* =============================================
+   PÁGINAS ESPECÍFICAS
+   ============================================= */
+/* Detalle de Producto */
+.producto-detalle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(45deg, #f8f8f8 0%, #e8e8e8 100%);
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.producto-info h2 {
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-sm);
+}
+
+.producto-codigo,
+.producto-categoria {
+    color: var(--color-gris);
+    margin-bottom: var(--spacing-xs);
+}
+
+.producto-precio {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-rosa);
+    margin: var(--spacing-sm) 0;
+}
+
+.producto-descripcion {
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
+.producto-acciones {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+/* Botones en el detalle de producto */
+.producto-acciones .btn-primary {
+    margin-right: var(--spacing-xs);
+}
+
+.producto-acciones .btn-secondary {
+    background-color: var(--color-rosa);
+    color: var(--color-chocolate);
+}
+
+.producto-acciones .btn-secondary:hover {
+    background-color: var(--color-chocolate);
+    color: var(--color-blanco);
+}

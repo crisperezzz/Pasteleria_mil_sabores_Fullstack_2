@@ -1,0 +1,417 @@
+/* Productos */
+.productos-destacados {
+    padding: var(--spacing-xl) 0;
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    align-items: start;
+}
+
+/* Contenedor de imagen de producto */
+.producto-card-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #f8f8f8 0%, #e8e8e8 100%);
+}
+
+.producto-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.producto-card:hover img {
+    transform: scale(1.05);
+}
+
+.producto-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+}
+
+.producto-card h3 {
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1rem;
+    line-height: 1.3;
+    height: 2.6em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.producto-card p:not(.precio) {
+    color: var(--color-texto);
+    line-height: 1.4;
+    margin-bottom: var(--spacing-xs);
+    flex: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.producto-card .precio {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--color-rosa);
+    margin: var(--spacing-xs) 0;
+}
+
+.producto-card .codigo {
+    font-size: 0.9rem;
+    color: var(--color-gris);
+    margin-bottom: var(--spacing-xs);
+}
+
+.producto-card-content > div:last-child {
+    margin-top: auto;
+    padding-top: var(--spacing-sm);
+    min-width: 0;
+}
+
+/* Botones de producto */
+.producto-card-buttons {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: var(--spacing-sm);
+    min-width: 0;
+}
+
+.producto-card button {
+    background-color: var(--color-chocolate);
+    color: var(--color-blanco);
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    min-width: 0;
+    flex: 1;
+    white-space: nowrap;
+}
+
+.producto-card button:hover {
+    background-color: var(--color-rosa);
+    color: var(--color-chocolate);
+    transform: translateY(-2px);
+}
+
+.producto-card a {
+    background-color: var(--color-rosa);
+    color: var(--color-chocolate);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    min-width: 0;
+    flex: 1;
+    white-space: nowrap;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.producto-card a:hover {
+    background-color: transparent;
+    color: var(--color-rosa);
+    border-color: var(--color-rosa);
+    transform: translateY(-2px);
+}
+
+/* =============================================
+   MEJORAS PARA IMÁGENES DE PRODUCTOS
+   ============================================= */
+
+/* Contenedor de imagen mejorado */
+.producto-card-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #f8f8f8 0%, #e8e8e8 100%);
+    position: relative;
+}
+
+/* Imágenes que mantienen su relación de aspecto */
+.producto-card-image-container img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Ajuste específico para imágenes verticales */
+.producto-card-image-container.img-vertical img {
+    width: auto;
+    height: 90%;
+}
+
+/* Ajuste específico para imágenes horizontales */
+.producto-card-image-container.img-horizontal img {
+    width: 90%;
+    height: auto;
+}
+
+/* Efecto hover suave */
+.producto-card:hover .producto-card-image-container img {
+    transform: scale(1.05);
+}
+
+/* Mejora para productos destacados */
+.productos-destacados .producto-card-image-container {
+    height: 180px;
+    padding: 0.5rem;
+}
+
+.productos-destacados .producto-card-image-container img {
+    max-height: 160px;
+    max-width: 90%;
+}
+
+/* Mejora para grid de productos normales */
+#productos-list .producto-card-image-container {
+    height: 190px;
+}
+
+#productos-list .producto-card-image-container img {
+    max-height: 170px;
+    max-width: 95%;
+}
+
+/* Detalle de producto - imagen completa */
+.producto-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #f8f8f8 0%, #e8e8e8 100%);
+    padding: 1rem;
+}
+
+.producto-imagen img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+}
+
+/* =============================================
+   ESTILOS ESPECÍFICOS PARA PÁGINA DE PRODUCTOS
+   ============================================= */
+
+/* Cuadrícula específica para página de productos */
+#productos-container.productos-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Ajustes para las tarjetas de productos en página de productos */
+#productos-container .producto-card {
+    height: 380px;
+    padding: 1rem;
+}
+
+#productos-container .producto-card-image-container {
+    height: 160px;
+    margin-bottom: 0.8rem;
+}
+
+#productos-container .producto-card h3 {
+    font-size: 1rem;
+    height: 2.4em;
+    margin-bottom: 0.5rem;
+}
+
+#productos-container .producto-descripcion-corta {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2;
+    margin-bottom: 0.8rem;
+}
+
+#productos-container .precio {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+#productos-container .producto-card-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+#productos-container .producto-card button,
+#productos-container .producto-card a {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Mejoras visuales para página de productos */
+#productos-container .producto-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(136, 69, 19, 0.1);
+}
+
+#productos-container .producto-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(136, 69, 19, 0.15);
+    border-color: var(--color-rosa);
+}
+
+/* Mejora de botones para página de productos */
+#productos-container .btn-carrito {
+    background: linear-gradient(135deg, var(--color-chocolate), #6b2c0b);
+    font-weight: 600;
+}
+
+#productos-container .btn-carrito:hover {
+    background: linear-gradient(135deg, #6b2c0b, var(--color-chocolate));
+    transform: translateY(-2px);
+}
+
+#productos-container .btn-detalles {
+    background: transparent;
+    border: 2px solid var(--color-rosa);
+    color: var(--color-rosa);
+    font-weight: 600;
+}
+
+#productos-container .btn-detalles:hover {
+    background: var(--color-rosa);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Mejora para imágenes en página de productos */
+#productos-container .producto-card-image-container {
+    height: 180px;
+    padding: 0.5rem;
+}
+
+#productos-container .producto-card-image-container img {
+    max-height: 160px;
+    max-width: 90%;
+}
+
+/* Estilos específicos para la página de productos */
+#productos-container.productos-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Ajustes para las tarjetas de productos en página de productos */
+#productos-container .producto-card {
+    height: 380px;
+    padding: 1rem;
+}
+
+#productos-container .producto-card-image-container {
+    height: 160px;
+    margin-bottom: 0.8rem;
+}
+
+#productos-container .producto-card h3 {
+    font-size: 1rem;
+    height: 2.4em;
+    margin-bottom: 0.5rem;
+}
+
+#productos-container .producto-descripcion-corta {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2;
+    margin-bottom: 0.8rem;
+}
+
+#productos-container .precio {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+#productos-container .producto-card-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+#productos-container .producto-card button,
+#productos-container .producto-card a {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Mejoras visuales para página de productos */
+#productos-container .producto-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(136, 69, 19, 0.1);
+}
+
+#productos-container .producto-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(136, 69, 19, 0.15);
+    border-color: var(--color-rosa);
+}
+
+/* Mejora de botones para página de productos */
+#productos-container .btn-carrito {
+    background: linear-gradient(135deg, var(--color-chocolate), #6b2c0b);
+    font-weight: 600;
+}
+
+#productos-container .btn-carrito:hover {
+    background: linear-gradient(135deg, #6b2c0b, var(--color-chocolate));
+    transform: translateY(-2px);
+}
+
+#productos-container .btn-detalles {
+    background: transparent;
+    border: 2px solid var(--color-rosa);
+    color: var(--color-rosa);
+    font-weight: 600;
+}
+
+#productos-container .btn-detalles:hover {
+    background: var(--color-rosa);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Mejora para imágenes en página de productos */
+#productos-container .producto-card-image-container {
+    height: 180px;
+    padding: 0.5rem;
+}
+
+#productos-container .producto-card-image-container img {
+    max-height: 160px;
+    max-width: 90%;
+}

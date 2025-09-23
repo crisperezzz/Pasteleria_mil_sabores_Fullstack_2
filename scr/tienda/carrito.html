@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito - Pastelería Mil Sabores</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css_tienda/style.css">
+    <link rel="stylesheet" href="/assets/css_tienda/responsive.css">
+    <link rel="stylesheet" href="/assets/css_tienda/carrito.css">
 </head>
 <body>
     <header>
@@ -27,13 +29,22 @@
             <h2>Tu Carrito de Compras</h2>
             
             <div id="carrito-container">
-                <p>Tu carrito está vacío</p>
+                <p class="carrito-vacio">Tu carrito está vacío</p>
             </div>
             
             <div id="total-container" style="display: none;">
-                <h3>Total: $<span id="total-precio">0</span></h3>
-                <button onclick="procesarCompra()" class="btn-primary">Procesar Compra</button>
-                <button onclick="vaciarCarrito()" class="btn-secondary">Vaciar Carrito</button>
+                <div class="resumen-compra">
+                    <h3>Resumen de tu compra</h3>
+                    <div class="resumen-detalle">
+                        <p>Subtotal: <span id="subtotal-precio">$0</span></p>
+                        <p>Descuentos: <span id="descuento-precio">$0</span></p>
+                        <p class="total-final">Total: <span id="total-precio">$0</span></p>
+                    </div>
+                    <div class="carrito-acciones">
+                        <button onclick="procesarCompra()" class="btn-primary">Finalizar Compra</button>
+                        <button onclick="vaciarCarrito()" class="btn-secondary">Vaciar Carrito</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -44,51 +55,7 @@
         </div>
     </footer>
 
-    <script src="js/carrito.js"></script>
-    <script>
-        function mostrarCarrito() {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const container = document.getElementById('carrito-container');
-            const totalContainer = document.getElementById('total-container');
-            
-            if (carrito.length === 0) {
-                container.innerHTML = '<p>Tu carrito está vacío</p>';
-                totalContainer.style.display = 'none';
-                return;
-            }
-            
-            let html = '';
-            let total = 0;
-            
-            carrito.forEach(item => {
-                const subtotal = item.precio * item.cantidad;
-                total += subtotal;
-                
-                html += `
-                    <div class="carrito-item">
-                        <img src="${item.imagen}" alt="${item.nombre}" width="80">
-                        <div>
-                            <h4>${item.nombre}</h4>
-                            <p>$${item.precio.toLocaleString('es-CL')} x ${item.cantidad}</p>
-                        </div>
-                        <p>$${subtotal.toLocaleString('es-CL')}</p>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = html;
-            document.getElementById('total-precio').textContent = total.toLocaleString('es-CL');
-            totalContainer.style.display = 'block';
-        }
-        
-        function procesarCompra() {
-            alert('¡Compra procesada con éxito!');
-            vaciarCarrito();
-            window.location.href = 'index.html';
-        }
-        
-        // Mostrar carrito al cargar la página
-        document.addEventListener('DOMContentLoaded', mostrarCarrito);
-    </script>
+    <script src="/assets/js_tienda/carrito.js"></script>
+    <script src="/assets/js_tienda/utils.js"></script>
 </body>
 </html>

@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle Blog - Pastelería Mil Sabores</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css_tienda/style.css">
+    <link rel="stylesheet" href="/assets/css_tienda/detalle-blog.css">
+    <link rel="stylesheet" href="/assets/css_tienda/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -37,80 +39,8 @@
         </div>
     </footer>
 
-    <script src="/assets/js/utils.js"></script>
-    <script src="/assets/js/carrito.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const blogId = parseInt(urlParams.get('id'));
-            
-            if (blogId) {
-                cargarDetalleBlog(blogId);
-            } else {
-                document.getElementById('detalle-blog').innerHTML = `
-                    <p class="error">Blog no encontrado</p>
-                    <a href="blogs.html" class="btn-primary">Volver al Blog</a>
-                `;
-            }
-        });
-
-        function cargarDetalleBlog(id) {
-            const blogs = obtenerBlogs();
-            const blog = blogs.find(b => b.id === id);
-            
-            const container = document.getElementById('detalle-blog');
-            
-            if (blog) {
-                container.innerHTML = `
-                    <article class="blog-completo">
-                        <div class="blog-header">
-                            <h2>${blog.titulo}</h2>
-                            <p class="blog-meta">Publicado el ${blog.fecha} | Por ${blog.autor}</p>
-                        </div>
-                        
-                        <img src="${blog.imagen}" alt="${blog.titulo}" class="blog-imagen-principal" onerror="this.src='images/placeholder.jpg'">
-                        
-                        <div class="blog-contenido">
-                            ${blog.contenido}
-                        </div>
-                        
-                        <div class="blog-acciones">
-                            <a href="blogs.html" class="btn-primary">Volver al Blog</a>
-                            <div class="blog-compartir">
-                                <span>Compartir:</span>
-                                <button onclick="compartirFacebook()">Facebook</button>
-                                <button onclick="compartirTwitter()">Twitter</button>
-                                <button onclick="compartirWhatsApp()">WhatsApp</button>
-                            </div>
-                        </div>
-                    </article>
-                `;
-            } else {
-                container.innerHTML = `
-                    <p class="error">Blog no encontrado</p>
-                    <a href="blogs.html" class="btn-primary">Volver al Blog</a>
-                `;
-            }
-        }
-
-        function compartirFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-        }
-
-        function compartirTwitter() {
-            const text = encodeURIComponent(document.title);
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
-        }
-
-        function compartirWhatsApp() {
-            const text = encodeURIComponent(`${document.title} - ${window.location.href}`);
-            window.open(`https://wa.me/?text=${text}`, '_blank');
-        }
-    </script>
-
-    <script src="/assets/js/utils.js"></script>
-    <script src="/assets/js/carrito.js"></script>
+    <script src="/assets/js_tienda/utils.js"></script>
+    <script src="/assets/js_tienda/carrito.js"></script>
+    <script src="/assets/js_tienda/detalle-blog.js"></script>
 </body>
 </html>

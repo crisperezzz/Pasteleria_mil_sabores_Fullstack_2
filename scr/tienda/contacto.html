@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Pastelería Mil Sabores</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css_tienda/style.css">
+    <link rel="stylesheet" href="/assets/css_tienda/contacto.css">
+    <link rel="stylesheet" href="/assets/css_tienda/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="header-container">
-            <h1>Pastelería Mil Sabores</h1>
+            <div class="logo-container">
+                <img src="/assets/images/logo.png" alt="Pastelería Mil Sabores" class="logo">
+                <h1>Pastelería Mil Sabores</h1>
+            </div>
             <nav>
                 <a href="/index.html">Inicio</a>
                 <a href="/scr/tienda/productos.html">Productos</a>
                 <a href="/scr/tienda/nosotros.html">Nosotros</a>
                 <a href="/scr/tienda/blogs.html">Blog</a>
-                <a href="/scr/tienda/contacto.html">Contacto</a>
+                <a href="/scr/tienda/contacto.html" class="active">Contacto</a>
                 <a href="/scr/tienda/login.html">Login</a>
                 <a href="/scr/tienda/carrito.html">Carrito (<span id="contador-carrito">0</span>)</a>
             </nav>
@@ -23,38 +29,96 @@
     </header>
 
     <main>
+        <section class="hero-contacto">
+            <div class="container">
+                <h2>Contáctanos</h2>
+                <p>Estamos aquí para endulzar tus momentos especiales</p>
+            </div>
+        </section>
+
         <div class="container">
-            <div class="form-container">
-                <h2>Contacto</h2>
-                <form onsubmit="return validarContacto(this)">
-                    <div class="form-group">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" required maxlength="100">
+            <div class="contacto-grid">
+                <div class="contacto-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contacto-item">
+                        <div class="contacto-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contacto@milSabores.cl</p>
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico:</label>
-                        <input type="email" id="email" name="email" maxlength="100">
+                    <div class="contacto-item">
+                        <div class="contacto-icon">📞</div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+56 2 2345 6789</p>
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="comentario">Mensaje:</label>
-                        <textarea id="comentario" name="comentario" rows="5" required maxlength="500"></textarea>
+                    <div class="contacto-item">
+                        <div class="contacto-icon">📍</div>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Av. Dulce 123, Santiago, Chile</p>
+                        </div>
                     </div>
-                    
-                    <button type="submit" class="btn-primary">Enviar Mensaje</button>
-                </form>
+                    <div class="contacto-item">
+                        <div class="contacto-icon">🕒</div>
+                        <div>
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes a Viernes: 9:00 - 20:00 hrs<br>
+                               Sábados: 10:00 - 18:00 hrs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-container contacto-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form id="formulario-contacto" onsubmit="return validarContacto(this)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required maxlength="100" 
+                                   placeholder="Ingresa tu nombre completo">
+                            <span class="contador-caracteres"><span id="contador-nombre">0</span>/100</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" maxlength="100" 
+                                   placeholder="ejemplo@duoc.cl">
+                            <small>Solo aceptamos @duoc.cl, @duocuc.cl, @profesor.duoc.cl y @gmail.com</small>
+                            <span class="contador-caracteres"><span id="contador-email">0</span>/100</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comentario">Mensaje *</label>
+                            <textarea id="comentario" name="comentario" rows="6" required maxlength="500" 
+                                      placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+                            <span class="contador-caracteres"><span id="contador-comentario">0</span>/500</span>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary btn-enviar">
+                            <span class="btn-text">Enviar Mensaje</span>
+                            <span class="btn-loading" style="display: none;">Enviando...</span>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </main>
 
     <footer>
         <div class="footer-container">
-            <p>&copy; 2024 Pastelería Mil Sabores</p>
+            <p>&copy; 2024 Pastelería Mil Sabores - Todos los derechos reservados</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
         </div>
     </footer>
 
-    <script src="/assets/js/validaciones.js"></script>
-    <script src="/assets/js/carrito.js"></script>
+    <script src="/assets/js_tienda/validaciones.js"></script>
+    <script src="/assets/js_tienda/carrito.js"></script>
+    <script src="/assets/js_tienda/contacto.js"></script>
 </body>
 </html>

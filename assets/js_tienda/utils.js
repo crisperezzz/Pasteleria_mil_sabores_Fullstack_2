@@ -16,12 +16,28 @@ function obtenerParametroURL(nombre) {
 
 // Función para mostrar notificaciones
 function mostrarNotificacion(mensaje, tipo = 'info') {
+    // Eliminar notificaciones existentes
+    document.querySelectorAll('.notificacion').forEach(notif => notif.remove());
+    
     const notification = document.createElement('div');
     notification.className = `notificacion notificacion-${tipo}`;
     notification.innerHTML = `
         <p>${mensaje}</p>
-        <button onclick="this.parentElement.remove()">×</button>
+        <button class="notificacion-close" onclick="this.parentElement.remove()">×</button>
     `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto-eliminar después de 5 segundos
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 5000);
+
+
+// Hacerla disponible globalmente
+window.mostrarNotificacion = mostrarNotificacion;
     
     // Estilos para la notificación
     notification.style.cssText = `
@@ -49,68 +65,6 @@ function mostrarNotificacion(mensaje, tipo = 'info') {
     }, 5000);
 }
 
-// Función para obtener blogs (datos de ejemplo)
-function obtenerBlogs() {
-    return [
-        {
-            id: 1,
-            titulo: "El Arte de la Repostería Chilena",
-            resumen: "Descubre la rica tradición de la repostería chilena y sus secretos mejor guardados.",
-            contenido: `
-                <p>La repostería chilena es una fusión de tradiciones indígenas, españolas y europeas que ha evolucionado a lo largo de los siglos. Desde las famosas tortas de mil hojas hasta los clásicos pasteles de choclo, cada receta cuenta una historia.</p>
-                
-                <h3>Ingredientes Tradicionales</h3>
-                <p>El manjar, la harina tostada, los frutos secos nativos y las frutas de temporada son la base de muchas de nuestras recetas tradicionales.</p>
-                
-                <h3>Técnicas Modernas</h3>
-                <p>Hoy combinamos estas tradiciones con técnicas modernas de repostería, creando productos que honran el pasado mientras innovamos para el futuro.</p>
-            `,
-            imagen: "images/blog-reposteria.jpg",
-            fecha: "15 Noviembre 2024",
-            autor: "Chef María González"
-        },
-        {
-            id: 2,
-            titulo: "Cómo Elegir la Torta Perfecta para tu Evento",
-            resumen: "Guía completa para seleccionar la torta ideal según el tipo de celebración.",
-            contenido: `
-                <p>Elegir la torta perfecta puede marcar la diferencia en cualquier celebración. Aquí te damos algunos tips:</p>
-                
-                <h3>Para Cumpleaños</h3>
-                <p>Las tortas temáticas y personalizadas son siempre un éxito. Considera los gustos del homenajeado.</p>
-                
-                <h3>Para Bodas</h3>
-                <p>Elegante y sofisticada, la torta de boda debe reflejar el estilo de la pareja.</p>
-                
-                <h3>Para Eventos Formales</h3>
-                <p>Tortas clásicas y elegantes que complementen la decoración del evento.</p>
-            `,
-            imagen: "images/blog-torta-perfecta.jpg",
-            fecha: "8 Noviembre 2024",
-            autor: "Pastelero Juan Pérez"
-        },
-        {
-            id: 3,
-            titulo: "Tips para Decoración de Tortas en Casa",
-            resumen: "Aprende técnicas simples para decorar tortas como un profesional desde tu hogar.",
-            contenido: `
-                <p>Decorar tortas en casa puede ser divertido y gratificante. Sigue estos consejos:</p>
-                
-                <h3>Herramientas Básicas</h3>
-                <p>Manga pastelera, boquillas básicas y espátula son suficientes para empezar.</p>
-                
-                <h3>Técnicas Sencillas</h3>
-                <p>Aprende el rosetón básico, bordes decorativos y escritura con glaze.</p>
-                
-                <h3>Materiales Accesibles</h3>
-                <p>Puedes improvisar con materiales de cocina comunes mientras adquieres equipo profesional.</p>
-            `,
-            imagen: "images/blog-decoracion.jpg",
-            fecha: "1 Noviembre 2024",
-            autor: "Estudiante Duoc UC"
-        }
-    ];
-}
 
 // Función para validar edad y aplicar descuentos
 function validarDescuentos(edad, email, codigoPromocional) {
@@ -215,4 +169,20 @@ function agregarEventListenerSeguro(selector, evento, callback) {
     if (elemento) {
         elemento.addEventListener(evento, callback);
     }
+}
+
+// Función para clasificar imágenes según su orientación (disponible globalmente)
+window.clasificarImagen = function(img) {
+    const container = img.parentElement;
+    container.classList.add('loaded');
+    
+    // Pequeño retraso para asegurar que la imagen esté cargada
+    setTimeout(() => {
+        if (img.naturalWidth > img.naturalHeight) {
+            container.classList.add('img-horizontal');
+        } else if (img.naturalHeight > img.naturalWidth) {
+            container.classList.add('img-vertical');
+        }
+        // Si es cuadrada, no añade clase adicional
+    }, 100);
 }

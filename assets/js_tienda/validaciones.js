@@ -1,6 +1,6 @@
 // Validaciones de formularios
 function validarEmail(email) {
-    const dominiosPermitidos = ['@duoc.cl', '@profesor.duoc.cl', '@gmail.com'];
+    const dominiosPermitidos = ['@duoc.cl', '@profesor.duoc.cl', '@gmail.com', 'duocuc.cl'];
     return dominiosPermitidos.some(dominio => email.includes(dominio));
 }
 
@@ -20,7 +20,7 @@ function validarLogin(form) {
     }
     
     if (!validarEmail(email)) {
-        alert('Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com');
+        alert('Solo se permiten correos @duoc.cl, duocuc.cl, @profesor.duoc.cl o @gmail.com');
         return false;
     }
     
@@ -79,7 +79,7 @@ function validarRegistro(form) {
     }
     
     if (!validarEmail(email)) {
-        alert('Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com');
+        alert('Solo se permiten correos @duoc.cl, @duocuc.cl, @profesor.duoc.cl o @gmail.com');
         return false;
     }
     
@@ -102,7 +102,7 @@ function validarContacto(form) {
     }
     
     if (email && !validarEmail(email)) {
-        alert('Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com');
+        alert('Solo se permiten correos @duoc.cl, @duocuc.cl, @profesor.duoc.cl o @gmail.com');
         return false;
     }
     
