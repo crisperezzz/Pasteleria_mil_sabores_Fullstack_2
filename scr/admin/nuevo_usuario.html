@@ -3,52 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Nuevo Usuario - Admin Mil Sabores</title>
-  <link rel="stylesheet" href="css/admin_estilos.css">
+  <link rel="stylesheet" href="/assets/admin_estilos.css">
   <script src="js/admin_script.js" defer></script>
-  <style>
-    form {
-      max-width: 600px;
-      margin: 40px auto;
-      background-color: #FFF5E1;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    .error {
-      color: red;
-      font-size: 0.9em;
-      margin-top: 4px;
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #8B4513;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #A0522D;
-    }
-  </style>
 </head>
 <body>
   <h1>Crear Nuevo Usuario</h1>
@@ -59,13 +15,13 @@
     <div class="error" id="errorRun"></div>
 
     <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
+    <input type="text" id="nombre" name="nombre" maxlength="50" required>
 
     <label for="apellido">Apellido:</label>
-    <input type="text" id="apellido" name="apellido" required>
+    <input type="text" id="apellido" name="apellido" maxlength="100" required>
 
     <label for="correo">Correo electrónico:</label>
-    <input type="email" id="correo" name="correo" required>
+    <input type="email" id="correo" name="correo" maxlength="100" required>
     <div class="error" id="errorCorreo"></div>
 
     <label for="tipo">Tipo de usuario:</label>
@@ -90,7 +46,7 @@
     </select>
 
     <label for="direccion">Dirección:</label>
-    <input type="text" id="direccion" name="direccion" required>
+    <input type="text" id="direccion" name="direccion" maxlength="300" required>
 
     <button type="submit">Guardar Usuario</button>
   </form>
