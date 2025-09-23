@@ -20,7 +20,7 @@ function cargarDetalleProducto(id) {
                 
                 <div class="producto-acciones">
                     <button onclick="agregarAlCarrito(${producto.id})" class="btn-primary">
-                        🛒 Añadir al Carrito
+                         Añadir al Carrito
                     </button>
                     <a href="/scr/tienda/productos.html" class="btn-secondary">← Volver a Productos</a>
                 </div>

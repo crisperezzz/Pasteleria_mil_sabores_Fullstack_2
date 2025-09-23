@@ -1,0 +1,312 @@
+/* =============================================
+   ESTILOS MEJORADOS PARA NOSOTROS
+   ============================================= */
+
+/* Hero Nosotros */
+.hero-nosotros {
+    background: linear-gradient(135deg, var(--color-rosa) 0%, var(--color-chocolate) 100%);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-nosotros h2 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-blanco);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-nosotros p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* Historia Section */
+.historia-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-blanco);
+}
+
+.historia-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.historia-content h2 {
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-lg);
+    font-size: 2.5rem;
+}
+
+.historia-destacado {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-texto);
+}
+
+.logros-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.logro-item {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: var(--color-fondo);
+    border-radius: var(--border-radius-lg);
+    transition: transform 0.3s ease;
+}
+
+.logro-item:hover {
+    transform: translateY(-5px);
+}
+
+.logro-numero {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-xs);
+}
+
+.logro-texto {
+    font-size: 0.9rem;
+    color: var(--color-texto);
+    font-weight: 600;
+}
+
+.historia-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen-placeholder {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(45deg, var(--color-rosa), var(--color-chocolate));
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-blanco);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Misión y Visión */
+.mision-vision {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-fondo);
+}
+
+.mv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+}
+
+.mv-card {
+    background: var(--color-blanco);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+}
+
+.mv-card:hover {
+    transform: translateY(-10px);
+}
+
+.mv-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.mv-card h3 {
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+}
+
+.mv-card p {
+    line-height: 1.7;
+    color: var(--color-texto);
+}
+
+/* Equipo Section */
+.equipo-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-blanco);
+}
+
+.equipo-section h2 {
+    text-align: center;
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-sm);
+    font-size: 2.5rem;
+}
+
+.equipo-subtitle {
+    text-align: center;
+    color: var(--color-gris);
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.1rem;
+}
+
+.equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.equipo-card {
+    background: var(--color-fondo);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.equipo-card:hover {
+    background: var(--color-blanco);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.equipo-avatar {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.equipo-card h4 {
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.3rem;
+}
+
+.equipo-cargo {
+    color: var(--color-rosa);
+    font-weight: bold;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1rem;
+}
+
+.equipo-desc {
+    color: var(--color-texto);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Valores Section */
+.valores-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-fondo);
+}
+
+.valores-section h2 {
+    text-align: center;
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-xl);
+    font-size: 2.5rem;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.valor-item {
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.valor-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.valor-item h4 {
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.valor-item p {
+    color: var(--color-texto);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+
+/* =============================================
+   RESPONSIVE PARA NOSOTROS
+   ============================================= */
+
+@media (max-width: 968px) {
+    .historia-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .mv-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .equipo-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .valores-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-nosotros h2 {
+        font-size: 2.2rem;
+    }
+    
+    .logros-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .valores-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mv-card {
+        padding: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-nosotros h2 {
+        font-size: 1.8rem;
+    }
+    
+    .historia-content h2 {
+        font-size: 2rem;
+    }
+    
+    .equipo-section h2,
+    .valores-section h2 {
+        font-size: 2rem;
+    }
+}
