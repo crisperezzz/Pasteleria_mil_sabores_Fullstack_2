@@ -122,14 +122,26 @@ function clasificarImagen(img) {
     const container = img.parentElement;
     container.classList.add('loaded');
     
+    // Remover clases anteriores para evitar conflictos
+    container.classList.remove('img-horizontal', 'img-vertical');
+    
     // Pequeño retraso para asegurar que la imagen esté cargada
     setTimeout(() => {
         if (img.naturalWidth > img.naturalHeight) {
             container.classList.add('img-horizontal');
+            // Ajuste específico para imágenes horizontales
+            img.style.maxWidth = '85%';
+            img.style.maxHeight = '95%';
         } else if (img.naturalHeight > img.naturalWidth) {
             container.classList.add('img-vertical');
+            // Ajuste específico para imágenes verticales
+            img.style.maxWidth = '95%';
+            img.style.maxHeight = '85%';
+        } else {
+            // Imágenes cuadradas
+            img.style.maxWidth = '90%';
+            img.style.maxHeight = '90%';
         }
-        // Si es cuadrada, no añade clase adicional
     }, 100);
 }
 
