@@ -271,3 +271,53 @@ header {
     margin: 5px;
   }
 }
+/* === LOGO Y USUARIO - ESTILOS NUEVOS === */
+.logo-section {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #FFC0CB;
+  margin-bottom: 15px;
+  background-color: white;
+  padding: 5px;
+}
+
+.user-info {
+  color: white;
+}
+
+.username {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #FFC0CB;
+  margin-bottom: 5px;
+}
+
+.user-role {
+  display: block;
+  font-size: 0.9em;
+  color: #FFEDE0;
+  background-color: rgba(255, 192, 203, 0.2);
+  padding: 4px 10px;
+  border-radius: 15px;
+  display: inline-block;
+}
+
+/* === AJUSTE DEL TÍTULO EXISTENTE === */
+nav h2 {
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 1.5em;
+  color: #FFC0CB;
+  margin-top: 0; /* Asegura que no haya espacio extra arriba */
+}
