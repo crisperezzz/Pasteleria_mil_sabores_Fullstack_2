@@ -1,0 +1,214 @@
+/* Carrito - imágenes */
+.carrito-item-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8;
+    padding: 0.3rem;
+}
+
+.carrito-item-image img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Blog - imágenes */
+.blog-card img {
+    object-fit: cover;
+    height: 200px;
+}
+
+/* =============================================
+   MEJORAS PARA EL CARRITO
+   ============================================= */
+
+/* Contenedor del carrito */
+#carrito-container {
+    margin: 2rem 0;
+}
+
+.carrito-vacio {
+    text-align: center;
+    color: var(--color-gris);
+    font-style: italic;
+    padding: 3rem;
+    font-size: 1.2rem;
+}
+
+/* Items del carrito */
+.carrito-item {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    background: var(--color-blanco);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.carrito-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.carrito-item-image {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #f8f8f8 0%, #e8e8e8 100%);
+}
+
+.carrito-item-image img {
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.carrito-item-image img.img-error {
+    opacity: 0.6;
+    filter: grayscale(100%);
+}
+
+.carrito-item-info h4 {
+    color: var(--color-chocolate);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.precio-unitario {
+    color: var(--color-chocolate);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.carrito-item-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.carrito-item-cantidad button {
+    background: var(--color-gris);
+    color: var(--color-blanco);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.carrito-item-cantidad button:hover {
+    background: var(--color-chocolate);
+    transform: scale(1.1);
+}
+
+.carrito-item-cantidad span {
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+}
+
+.carrito-item-precio {
+    text-align: right;
+}
+
+.carrito-item-precio .subtotal {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-chocolate);
+    margin-bottom: 0.5rem;
+}
+
+.btn-eliminar {
+    background: var(--color-chocolate);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn-eliminar:hover {
+    background: hsl(23, 77%, 86%);
+    transform: scale(1.1);
+}
+
+/* Resumen de compra */
+#total-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--color-blanco);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.resumen-compra h3 {
+    color: var(--color-chocolate);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.resumen-detalle {
+    margin-bottom: 2rem;
+}
+
+.resumen-detalle p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.resumen-detalle .total-final {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--color-chocolate);
+    border-top: 2px solid var(--color-rosa);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.carrito-acciones {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.carrito-acciones .btn-primary {
+    background: linear-gradient(135deg, var(--color-chocolate), #6b2c0b);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.carrito-acciones .btn-secondary {
+    background: var(--color-gris);
+    color: var(--color-blanco);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.carrito-acciones .btn-secondary:hover {
+    background: var(--color-error);
+}

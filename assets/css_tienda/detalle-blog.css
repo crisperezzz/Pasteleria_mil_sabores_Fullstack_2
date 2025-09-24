@@ -1,0 +1,57 @@
+/* Detalle de Blog */
+.blog-completo {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.blog-meta {
+    color: var(--color-gris);
+    font-style: italic;
+}
+
+.blog-imagen-principal {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.blog-contenido {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.blog-contenido h3 {
+    color: var(--color-chocolate);
+    margin: var(--spacing-md) 0 var(--spacing-xs) 0;
+}
+
+.blog-acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.blog-compartir {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.blog-compartir button {
+    background-color: var(--color-rosa);
+    color: var(--color-chocolate);
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+}

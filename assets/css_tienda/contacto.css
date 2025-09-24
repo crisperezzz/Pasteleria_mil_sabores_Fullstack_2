@@ -1,0 +1,195 @@
+/* =============================================
+   ESTILOS MEJORADOS PARA CONTACTO
+   ============================================= */
+
+.hero-contacto {
+    background: linear-gradient(135deg, var(--color-rosa) 0%, var(--color-chocolate) 100%);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-contacto h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-blanco);
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+.contacto-info {
+    background: var(--color-blanco);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    height: fit-content;
+}
+
+.contacto-info h3 {
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.contacto-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    transition: all 0.3s ease;
+}
+
+.contacto-item:hover {
+    background: var(--color-fondo);
+    transform: translateX(5px);
+}
+
+.contacto-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    text-align: center;
+}
+
+.contacto-item h4 {
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1rem;
+}
+
+.contacto-item p {
+    color: var(--color-texto);
+    line-height: 1.5;
+}
+
+.contacto-form {
+    background: var(--color-blanco);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.contacto-form h3 {
+    color: var(--color-chocolate);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: bold;
+    color: var(--color-chocolate);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-gris);
+    border-radius: var(--border-radius-md);
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-rosa);
+    box-shadow: 0 0 0 3px rgba(255, 192, 203, 0.3);
+}
+
+.form-group small {
+    display: block;
+    margin-top: var(--spacing-xs);
+    color: var(--color-gris);
+    font-size: 0.85rem;
+}
+
+.contador-caracteres {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 0.8rem;
+    color: var(--color-gris);
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-text, .btn-loading {
+    transition: opacity 0.3s ease;
+}
+
+/* Responsive para contacto */
+@media (max-width: 768px) {
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .hero-contacto h2 {
+        font-size: 2rem;
+    }
+    
+    .contacto-item {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .contacto-form {
+        padding: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .contacto-form {
+        padding: var(--spacing-md);
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* Estados del formulario */
+.form-group.error input,
+.form-group.error textarea {
+    border-color: var(--color-error);
+}
+
+.form-group.success input,
+.form-group.success textarea {
+    border-color: var(--color-success);
+}
+
+/* Animación de envío */
+.btn-enviar.loading .btn-text {
+    opacity: 0;
+}
+
+.btn-enviar.loading .btn-loading {
+    opacity: 1;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Productos - Admin Mil Sabores</title>
+  <link rel="stylesheet" href="/assets/css_admin/admin_estilos.css">
+  <script src="/assets/js_admin/admin_script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <h2>Mil Sabores</h2>
+      <ul>
+        <li><a href="productos.html">📦 Productos</a></li>
+        <li><a href="nuevo_producto.html">➕ Nuevo Producto</a></li>
+        <li><a href="usuarios.html">👥 Usuarios</a></li>
+        <li><a href="nuevo_usuario.html">➕ Nuevo Usuario</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h1>Listado de Productos</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaProductos">
+          <!-- Se llena con JS -->
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+</html>

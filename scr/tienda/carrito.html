@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Pastelería Mil Sabores</title>
+    <link rel="icon" type="image/png" href="assets/images/icon.png">
+    <link rel="stylesheet" href="/assets/css_tienda/style.css">
+    <link rel="stylesheet" href="/assets/css_tienda/responsive.css">
+    <link rel="stylesheet" href="/assets/css_tienda/carrito.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Pastelería Mil Sabores</h1>
+            <nav>
+                <a href="/index.html">Inicio</a>
+                <a href="/scr/tienda/productos.html">Productos</a>
+                <a href="/scr/tienda/nosotros.html">Nosotros</a>
+                <a href="/scr/tienda/blogs.html">Blog</a>
+                <a href="/scr/tienda/contacto.html">Contacto</a>
+                <a href="/scr/tienda/login.html">Login</a>
+                <a href="/scr/tienda/carrito.html">Carrito (<span id="contador-carrito">0</span>)</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Tu Carrito de Compras</h2>
+            
+            <div id="carrito-container">
+                <p class="carrito-vacio">Tu carrito está vacío</p>
+            </div>
+            
+            <div id="total-container" style="display: none;">
+                <div class="resumen-compra">
+                    <h3>Resumen de tu compra</h3>
+                    <div class="resumen-detalle">
+                        <p>Subtotal: <span id="subtotal-precio">$0</span></p>
+                        <p>Descuentos: <span id="descuento-precio">$0</span></p>
+                        <p class="total-final">Total: <span id="total-precio">$0</span></p>
+                    </div>
+                    <div class="carrito-acciones">
+                        <button onclick="procesarCompra()" class="btn-primary">Finalizar Compra</button>
+                        <button onclick="vaciarCarrito()" class="btn-secondary">Vaciar Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Pastelería Mil Sabores</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js_tienda/carrito.js"></script>
+    <script src="/assets/js_tienda/utils.js"></script>
+</body>
+</html>

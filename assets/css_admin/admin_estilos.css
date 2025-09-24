@@ -1,0 +1,323 @@
+/* === RESET Y FUENTES === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #FFF5E1;
+  color: #5D4037;
+  margin: 0;
+  padding: 0;
+}
+
+/* === LAYOUT CON MENÚ LATERAL - ESTO ES LO MÁS IMPORTANTE === */
+.container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+nav {
+  width: 250px;
+  background-color: #8B4513;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+}
+
+nav h2 {
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 1.5em;
+  color: #FFC0CB;
+}
+
+/* === MENÚ DE NAVEGACIÓN - ESTILOS MEJORADOS === */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin-bottom: 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 12px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+}
+
+nav ul li a:hover {
+  background-color: #FFC0CB;
+  color: #5D4037;
+  transform: translateX(5px);
+  border-color: #FF99B3;
+}
+
+/* === CONTENIDO PRINCIPAL === */
+main {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: #FFF5E1;
+  margin-left: 250px; /* Mismo ancho que el nav */
+  width: calc(100% - 250px);
+  min-height: 100vh;
+}
+
+/* === BOTONES PRINCIPALES - ESTILOS MEJORADOS === */
+button {
+  background: #FFC0CB;
+  color: #5D4037;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: inline-block;
+  width: auto;
+  min-width: 150px;
+}
+
+button:hover {
+  background: #FF99B3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+
+/* === BOTONES SECUNDARIOS - MÁS VISIBLES === */
+.btn-editar {
+  background: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.btn-eliminar {
+  background: #f44336;
+  color: white;
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.btn-editar:hover {
+  background: #45a049;
+  transform: scale(1.05);
+}
+
+.btn-eliminar:hover {
+  background: #da190b;
+  transform: scale(1.05);
+}
+
+/* === FORMULARIOS === */
+form {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+label {
+  display: block;
+  margin: 20px 0 8px;
+  font-weight: bold;
+  color: #5D4037;
+  font-size: 1.1em;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #FFC0CB;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  background-color: #FFF9F3;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #8B4513;
+  outline: none;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(139, 69, 19, 0.2);
+}
+
+/* === TABLAS === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid #FFEDE0;
+}
+
+th {
+  background-color: #8B4513;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+tr:hover {
+  background-color: #FFF5E1;
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+/* === HEADER (para páginas que lo usen) === */
+header {
+  background: linear-gradient(135deg, #FFC0CB, #8B4513);
+  color: white;
+  padding: 25px;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  border-bottom: 4px solid #8B4513;
+  margin-bottom: 30px;
+}
+
+/* === TARJETAS === */
+.card {
+  background: white;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  color: #8B4513;
+  margin-bottom: 15px;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8em;
+}
+
+/* === MENSAJES DE ERROR === */
+.error {
+  color: #ff4444;
+  font-size: 0.9em;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  nav {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+  main {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 5px;
+  }
+}
+/* === LOGO Y USUARIO - ESTILOS NUEVOS === */
+.logo-section {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #FFC0CB;
+  margin-bottom: 15px;
+  background-color: white;
+  padding: 5px;
+}
+
+.user-info {
+  color: white;
+}
+
+.username {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #FFC0CB;
+  margin-bottom: 5px;
+}
+
+.user-role {
+  display: block;
+  font-size: 0.9em;
+  color: #FFEDE0;
+  background-color: rgba(255, 192, 203, 0.2);
+  padding: 4px 10px;
+  border-radius: 15px;
+  display: inline-block;
+}
+
+/* === AJUSTE DEL TÍTULO EXISTENTE === */
+nav h2 {
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 1.5em;
+  color: #FFC0CB;
+  margin-top: 0; /* Asegura que no haya espacio extra arriba */
+}

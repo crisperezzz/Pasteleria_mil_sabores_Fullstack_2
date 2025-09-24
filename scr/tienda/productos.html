@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pastelería Mil Sabores - Inicio</title>
+    <title>Productos - Pastelería Mil Sabores</title>
     <link rel="icon" type="image/png" href="assets/images/icon.png">
     <link rel="stylesheet" href="/assets/css_tienda/style.css">
     <link rel="stylesheet" href="/assets/css_tienda/productos.css">
-    <link rel="stylesheet" href="/assets/css_tienda/productos-destacados.css">
     <link rel="stylesheet" href="/assets/css_tienda/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
 </head>
@@ -31,41 +30,23 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-logo">
-                    <img src="/assets/images/logo.png" alt="Pastelería Mil Sabores" class="logo-hero">
-                </div>
-                <h2>¡Bienvenido a nuestra pastelería!</h2>
-                <p>50 años endulzando tus momentos especiales</p>
-                <a href="/scr/tienda/productos.html" class="btn-primary">Ver Productos</a>
-            </div>
-        </section>
-
         <section class="productos-destacados">
             <div class="container">
-                <h2>Nuestros Productos Destacados</h2>
-                <div id="productos-container" class="productos-grid"></div>
-            </div>
-        </section>
-
-        <section class="promociones">
-            <div class="container">
-                <h2>Promociones Especiales</h2>
-                <div class="promo-cards">
-                    <div class="promo-card">
-                        <h3>50% OFF</h3>
-                        <p>Para mayores de 50 años</p>
-                    </div>
-                    <div class="promo-card">
-                        <h3>10% OFF</h3>
-                        <p>Con código: FELICES50</p>
-                    </div>
-                    <div class="promo-card">
-                        <h3>Torta FREE</h3>
-                        <p>Estudiantes Duoc en cumpleaños</p>
-                    </div>
+                <h2>Todos Nuestros Productos</h2>
+                
+                <div class="filtros">
+                    <button onclick="filtrarPorCategoria('todos')" class="btn-filter active">Todos</button>
+                    <button onclick="filtrarPorCategoria('Tortas Cuadradas')" class="btn-filter">Tortas Cuadradas</button>
+                    <button onclick="filtrarPorCategoria('Tortas Circulares')" class="btn-filter">Tortas Circulares</button>
+                    <button onclick="filtrarPorCategoria('Postres Individuales')" class="btn-filter">Postres Individuales</button>
+                    <button onclick="filtrarPorCategoria('Productos Sin Azúcar')" class="btn-filter">Sin Azúcar</button>
+                    <button onclick="filtrarPorCategoria('Pastelería Tradicional')" class="btn-filter">Tradicional</button>
+                    <button onclick="filtrarPorCategoria('Productos Sin Gluten')" class="btn-filter">Sin Gluten</button>
+                    <button onclick="filtrarPorCategoria('Productos Veganos')" class="btn-filter">Veganos</button>
+                    <button onclick="filtrarPorCategoria('Tortas Especiales')" class="btn-filter">Especiales</button>
                 </div>
+                
+                <div id="productos-container" class="productos-grid"></div>
             </div>
         </section>
     </main>
@@ -80,10 +61,9 @@
             </div>
         </div>
     </footer>
-    
 
     <script src="/assets/js_tienda/utils.js"></script>
     <script src="/assets/js_tienda/carrito.js"></script>
-    <script src="/assets/js_tienda/productos-destacados.js"></script>
+    <script src="/assets/js_tienda/productos-completos.js"></script>
 </body>
 </html>
