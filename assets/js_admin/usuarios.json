@@ -1,0 +1,59 @@
+{
+  "usuarios": [
+    {
+      "run": "123456789",
+      "nombre": "Ana",
+      "apellido": "Gómez",
+      "correo": "ana.gomez@duoc.cl",
+      "tipo": "Administrador",
+      "region": "Metropolitana",
+      "comuna": "Santiago",
+      "direccion": "Av. Principal 123",
+      "fechaCreacion": "2024-01-15T10:30:00.000Z"
+    },
+    {
+      "run": "987654321",
+      "nombre": "Carlos",
+      "apellido": "López",
+      "correo": "carlos.lopez@profesor.duoc.cl",
+      "tipo": "Profesor",
+      "region": "Valparaíso",
+      "comuna": "Viña del Mar",
+      "direccion": "Costa Brava 456",
+      "fechaCreacion": "2024-01-20T14:20:00.000Z"
+    },
+    {
+      "run": "456789123",
+      "nombre": "María",
+      "apellido": "Rodríguez",
+      "correo": "maria.rodriguez@gmail.com",
+      "tipo": "Cliente",
+      "region": "Biobío",
+      "comuna": "Concepción",
+      "direccion": "Caupolicán 789",
+      "fechaCreacion": "2024-02-01T09:15:00.000Z"
+    },
+    {
+      "run": "789123456",
+      "nombre": "Pedro",
+      "apellido": "Martínez",
+      "correo": "pedro.martinez@duoc.cl",
+      "tipo": "Estudiante",
+      "region": "Metropolitana",
+      "comuna": "Providencia",
+      "direccion": "Los Leones 101",
+      "fechaCreacion": "2024-02-10T16:45:00.000Z"
+    },
+    {
+      "run": "321654987",
+      "nombre": "Laura",
+      "apellido": "Silva",
+      "correo": "laura.silva@gmail.com",
+      "tipo": "Cliente",
+      "region": "Valparaíso",
+      "comuna": "Valparaíso",
+      "direccion": "Playa Ancha 202",
+      "fechaCreacion": "2024-02-15T11:30:00.000Z"
+    }
+  ]
+}
