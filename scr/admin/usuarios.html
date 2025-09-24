@@ -3,26 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <title>Listado de Usuarios - Admin Mil Sabores</title>
-  <link rel="stylesheet" href="/assets/admin_estilos.css">
-  <script src="js/admin_script.js" defer></script>
+  <link rel="stylesheet" href="../../assets/css_admin/admin_estilos.css">
+  <script src="../../assets/admin_script.js" defer></script>
 </head>
 <body>
-  <h1>Listado de Usuarios</h1>
-
-  <table id="tablaUsuarios">
-    <thead>
-      <tr>
-        <th>RUN</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Correo</th>
-        <th>Tipo</th>
-        <th>Región</th>
-        <th>Comuna</th>
-        <th>Dirección</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <div class="container">
+    <nav>
+      <h2>Mil Sabores</h2>
+      <ul>
+        <li><a href="productos.html">📦 Productos</a></li>
+        <li><a href="nuevo_producto.html">➕ Nuevo Producto</a></li>
+        <li><a href="usuarios.html">👥 Usuarios</a></li>
+        <li><a href="nuevo_usuario.html">➕ Nuevo Usuario</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h1>Listado de Usuarios</h1>
+      
+      <!-- Botón para probar funciones -->
+      <button onclick="probarFunciones()" style="background: #4CAF50; color: white; padding: 10px; margin: 10px;">
+        🧪 Probar Funciones
+      </button>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>RUN</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Tipo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaUsuarios">
+          <!-- Se llena con JS -->
+        </tbody>
+      </table>
+    </main>
+  </div>
 </body>
 </html>

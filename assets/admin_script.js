@@ -1,162 +1,289 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // =======================
-  // Botón de inventario
-  // =======================
-  const btnInventario = document.getElementById("btnInventario");
-  if (btnInventario) {
-    btnInventario.addEventListener("click", () => {
-      alert("Inventario actualizado 🍰");
-    });
-  }
+// =======================
+// VARIABLES GLOBALES
+// =======================
+let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+let productos = JSON.parse(localStorage.getItem("productos")) || [];
 
 // =======================
-// Validación de nuevo producto
+// FUNCIONES DE USUARIOS - DEFINIDAS GLOBALMENTE
 // =======================
-  const formProducto = document.getElementById("formProducto");
-  if (formProducto) {
-    formProducto.addEventListener("submit", (e) => {
-      e.preventDefault();
 
-      const codigo = document.getElementById("codigo").value.trim();
-      const nombre = document.getElementById("nombre").value.trim();
-      const precio = parseFloat(document.getElementById("precio").value);
-      const stock = parseInt(document.getElementById("stock").value);
-      const stockCritico = parseInt(document.getElementById("stockCritico").value);
-      const categoria = document.getElementById("categoria").value;
+// Función para formatear RUN
+function formatearRUN(run) {
+    if (!run || run.length <= 1) return run || 'N/A';
+    const runLimpio = run.replace(/-/g, '');
+    return runLimpio.slice(0, -1) + '-' + runLimpio.slice(-1).toUpperCase();
+}
 
-      let errores = [];
+// Función para eliminar usuario - VERSIÓN MEJORADA
+window.eliminarUsuario = function(run) {
+    console.log('🔍 Buscando usuario con RUN:', run);
+    
+    if (!run) {
+        alert('❌ Error: RUN no válido');
+        return;
+    }
 
-      if (codigo.length < 3) errores.push("El código debe tener al menos 3 caracteres.");
-      if (nombre.length === 0 || nombre.length > 100) errores.push("El nombre es obligatorio y debe tener máximo 100 caracteres.");
-      if (isNaN(precio) || precio < 0) errores.push("El precio debe ser un número mayor o igual a 0.");
-      if (isNaN(stock) || stock < 0) errores.push("El stock debe ser un número entero mayor o igual a 0.");
-      if (categoria === "") errores.push("Debes seleccionar una categoría.");
+    // Limpiar el RUN para búsqueda
+    const runLimpio = run.replace(/-/g, '').toUpperCase();
+    console.log('RUN limpio:', runLimpio);
 
-      if (!isNaN(stockCritico) && stock <= stockCritico) {
-        alert("⚠️ ¡Stock crítico alcanzado!");
-      }
+    // Cargar usuarios actualizados
+    usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    console.log('Usuarios encontrados:', usuarios);
 
-      if (errores.length > 0) {
-        alert("Errores:\n" + errores.join("\n"));
-      } else {
-        // ✅ Guardar producto en localStorage
-        const nuevoProducto = {
-          codigo,
-          nombre,
-          precio,
-          stock,
-          stockCritico,
-          categoria
-        };
-
-        let productosGuardados = JSON.parse(localStorage.getItem("productos")) || [];
-        productosGuardados.push(nuevoProducto);
-        localStorage.setItem("productos", JSON.stringify(productosGuardados));
-
-        alert("✅ Producto guardado correctamente.");
-        formProducto.reset();
-      }
+    // Buscar usuario
+    const usuarioIndex = usuarios.findIndex(u => {
+        const runUsuario = (u.run || '').replace(/-/g, '').toUpperCase();
+        return runUsuario === runLimpio;
     });
-  }
 
-  // =======================
-  // Validación de nuevo usuario
-  // =======================
-  const formUsuario = document.getElementById("formUsuario");
-  if (formUsuario) {
-    const runInput = document.getElementById("run");
-    const correoInput = document.getElementById("correo");
-    const regionSelect = document.getElementById("region");
-    const comunaSelect = document.getElementById("comuna");
-    const errorRun = document.getElementById("errorRun");
-    const errorCorreo = document.getElementById("errorCorreo");
+    if (usuarioIndex === -1) {
+        alert('❌ No se encontró el usuario con RUN: ' + run);
+        return;
+    }
 
-    const comunasPorRegion = {
-      "Metropolitana": ["Puente Alto", "La Florida", "Providencia"],
-      "Valparaíso": ["Viña del Mar", "Valparaíso", "Quilpué"],
-      "Biobío": ["Concepción", "Talcahuano", "Los Ángeles"]
+    const usuario = usuarios[usuarioIndex];
+    
+    if (confirm(`¿Estás seguro de eliminar al usuario?\n\nNombre: ${usuario.nombre} ${usuario.apellido}\nRUN: ${formatearRUN(usuario.run)}\nCorreo: ${usuario.correo}`)) {
+        // Eliminar usuario
+        usuarios.splice(usuarioIndex, 1);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        
+        // Recargar tabla
+        cargarUsuarios();
+        alert('✅ Usuario eliminado correctamente');
+    }
+};
+
+// Función para editar usuario
+window.editarUsuario = function(run) {
+    console.log('✏️ Editando usuario RUN:', run);
+    
+    const runLimpio = run.replace(/-/g, '').toUpperCase();
+    usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    
+    const usuario = usuarios.find(u => {
+        const runUsuario = (u.run || '').replace(/-/g, '').toUpperCase();
+        return runUsuario === runLimpio;
+    });
+
+    if (!usuario) {
+        alert('❌ Usuario no encontrado');
+        return;
+    }
+
+    // Guardar usuario para edición
+    localStorage.setItem('usuarioEditar', JSON.stringify(usuario));
+    alert(`📝 Editando usuario: ${usuario.nombre} ${usuario.apellido}\n\n(En un sistema completo, se redirigiría a página de edición)`);
+    
+    console.log('Datos del usuario:', usuario);
+};
+
+// =======================
+// FUNCIONES DE PRODUCTOS - DEFINIDAS GLOBALMENTE
+// =======================
+
+window.editarProducto = function(codigo) {
+    console.log('✏️ Editando producto:', codigo);
+    
+    productos = JSON.parse(localStorage.getItem("productos")) || [];
+    const producto = productos.find(p => p.codigo === codigo);
+    
+    if (!producto) {
+        alert('❌ Producto no encontrado');
+        return;
+    }
+
+    localStorage.setItem('productoEditar', JSON.stringify(producto));
+    alert(`📝 Editando producto: ${producto.nombre}\n\n(En un sistema completo, se redirigiría a página de edición)`);
+};
+
+window.eliminarProducto = function(codigo) {
+    console.log('🗑️ Eliminando producto:', codigo);
+    
+    if (!codigo) {
+        alert('❌ Error: Código no válido');
+        return;
+    }
+
+    productos = JSON.parse(localStorage.getItem("productos")) || [];
+    const productoIndex = productos.findIndex(p => p.codigo === codigo);
+
+    if (productoIndex === -1) {
+        alert('❌ No se encontró el producto con código: ' + codigo);
+        return;
+    }
+
+    const producto = productos[productoIndex];
+    
+    if (confirm(`¿Estás seguro de eliminar el producto?\n\nCódigo: ${producto.codigo}\nNombre: ${producto.nombre}\nPrecio: $${producto.precio}`)) {
+        productos.splice(productoIndex, 1);
+        localStorage.setItem("productos", JSON.stringify(productos));
+        cargarProductos();
+        alert('✅ Producto eliminado correctamente');
+    }
+};
+
+// =======================
+// FUNCIONES DE CARGA
+// =======================
+
+window.cargarUsuarios = function() {
+    const tabla = document.getElementById("tablaUsuarios");
+    if (!tabla) {
+        console.log('⚠️ No hay tabla de usuarios en esta página');
+        return;
+    }
+
+    usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    console.log('👥 Cargando', usuarios.length, 'usuarios');
+
+    if (usuarios.length === 0) {
+        tabla.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 30px; color: #666;">No hay usuarios registrados</td></tr>';
+        return;
+    }
+
+    tabla.innerHTML = usuarios.map(usuario => `
+        <tr>
+            <td><strong>${formatearRUN(usuario.run)}</strong></td>
+            <td>${usuario.nombre} ${usuario.apellido}</td>
+            <td>${usuario.correo}</td>
+            <td><span class="badge-tipo">${usuario.tipo}</span></td>
+            <td>
+                <button class="btn-editar" onclick="editarUsuario('${usuario.run}')">✏️ Editar</button>
+                <button class="btn-eliminar" onclick="eliminarUsuario('${usuario.run}')">🗑️ Eliminar</button>
+            </td>
+        </tr>
+    `).join('');
+};
+
+window.cargarProductos = function() {
+    const tabla = document.getElementById("tablaProductos");
+    if (!tabla) {
+        console.log('⚠️ No hay tabla de productos en esta página');
+        return;
+    }
+
+    productos = JSON.parse(localStorage.getItem("productos")) || [];
+    console.log('📦 Cargando', productos.length, 'productos');
+
+    if (productos.length === 0) {
+        tabla.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 30px; color: #666;">No hay productos registrados</td></tr>';
+        return;
+    }
+
+    tabla.innerHTML = productos.map(producto => `
+        <tr>
+            <td><strong>${producto.codigo}</strong></td>
+            <td>${producto.nombre}</td>
+            <td>$${producto.precio?.toLocaleString('es-CL') || '0'}</td>
+            <td>${producto.stock || '0'}</td>
+            <td>${obtenerNombreCategoria(producto.categoria)}</td>
+            <td>
+                <button class="btn-editar" onclick="editarProducto('${producto.codigo}')">✏️ Editar</button>
+                <button class="btn-eliminar" onclick="eliminarProducto('${producto.codigo}')">🗑️ Eliminar</button>
+            </td>
+        </tr>
+    `).join('');
+};
+
+// =======================
+// FUNCIONES AUXILIARES
+// =======================
+
+function obtenerNombreCategoria(codigo) {
+    const categorias = {
+        "TC": "Tortas Cuadradas", "TT": "Tortas Circulares", "PI": "Postres Individuales",
+        "PSA": "Productos Sin Azúcar", "PT": "Pastelería Tradicional", "PG": "Productos Sin Gluten",
+        "PV": "Productos Veganos", "TE": "Tortas Especiales"
     };
+    return categorias[codigo] || codigo;
+}
 
-    regionSelect.addEventListener("change", () => {
-      const region = regionSelect.value;
-      comunaSelect.innerHTML = '<option value="">Seleccione comuna</option>';
-      if (comunasPorRegion[region]) {
-        comunasPorRegion[region].forEach(comuna => {
-          const option = document.createElement("option");
-          option.value = comuna;
-          option.textContent = comuna;
-          comunaSelect.appendChild(option);
-        });
-      }
-    });
+// =======================
+// INICIALIZACIÓN
+// =======================
 
-    function validarRUN(run) {
-      run = run.replace(/\./g, "").replace("-", "");
-      const cuerpo = run.slice(0, -1);
-      const dv = run.slice(-1).toUpperCase();
-      let suma = 0;
-      let multiplo = 2;
-      for (let i = cuerpo.length - 1; i >= 0; i--) {
-        suma += parseInt(cuerpo[i]) * multiplo;
-        multiplo = multiplo < 7 ? multiplo + 1 : 2;
-      }
-      const dvEsperado = 11 - (suma % 11);
-      const dvFinal = dvEsperado === 11 ? "0" : dvEsperado === 10 ? "K" : dvEsperado.toString();
-      return dv === dvFinal;
+document.addEventListener("DOMContentLoaded", function() {
+    console.log('🚀 Admin cargado - Funciones listas');
+    
+    // Cargar datos según la página
+    if (document.getElementById('tablaUsuarios')) {
+        console.log('📋 Página de usuarios detectada');
+        cargarUsuarios();
     }
-
-    function validarDominioCorreo(correo) {
-    return correo.endsWith("@duoc.cl") || correo.endsWith("@profesor.duoc.cl") || correo.endsWith("@gmail.com");}
-
-    function validarCorreo(correo) {
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return regex.test(correo);
+    
+    if (document.getElementById('tablaProductos')) {
+        console.log('📦 Página de productos detectada');
+        cargarProductos();
     }
-
-    formUsuario.addEventListener("submit", (e) => {
-      e.preventDefault();
-      let valido = true;
-
-      if (!validarRUN(runInput.value)) {
-        errorRun.textContent = "RUN inválido";
-        valido = false;
-      } else if (runInput.value.length < 7 || runInput.value.length > 9) {
-        errorRun.textContent = "El RUN debe tener entre 7 y 9 caracteres";
-        valido = false;
-      } else {
-        errorRun.textContent = "";
-      }
-
-      if (!validarCorreo(correoInput.value)) {
-        errorCorreo.textContent = "Formato de correo inválido";
-        valido = false;
-      } else if (!validarDominioCorreo(correoInput.value)) {
-        errorCorreo.textContent = "Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com";
-        valido = false;
-      } else {
-      errorCorreo.textContent = "";
-      }
-
-
-      if (regionSelect.value === "" || comunaSelect.value === "" || document.getElementById("tipo").value === "") {
-        alert("Debe seleccionar tipo de usuario, región y comuna");
-        valido = false;
-      }
-
-      const campos = ["nombre", "apellido", "direccion"];
-      campos.forEach(id => {
-        const campo = document.getElementById(id);
-        if (campo.value.trim() === "") {
-          alert(`El campo ${id} no puede estar vacío`);
-          valido = false;
-        }
-      });
-
-      if (valido) {
-        alert("Usuario guardado correctamente (simulado)");
-        formUsuario.reset();
-        comunaSelect.innerHTML = '<option value="">Seleccione comuna</option>';
-      }
-    });
-  }
+    
+    // Verificar que las funciones estén disponibles
+    console.log('eliminarUsuario disponible:', typeof eliminarUsuario);
+    console.log('editarUsuario disponible:', typeof editarUsuario);
+    console.log('eliminarProducto disponible:', typeof eliminarProducto);
+    console.log('editarProducto disponible:', typeof editarProducto);
 });
+
+// =======================
+// DATOS DE PRUEBA
+// =======================
+
+window.agregarDatosPrueba = function() {
+    const usuariosEjemplo = [
+        {
+            run: "123456789",
+            nombre: "Ana",
+            apellido: "Gómez",
+            correo: "ana@duoc.cl",
+            tipo: "Administrador",
+            region: "Metropolitana",
+            comuna: "Santiago",
+            direccion: "Av. Principal 123"
+        }
+    ];
+    
+    const productosEjemplo = [
+        {
+            codigo: "TC001",
+            nombre: "Torta Chocolate",
+            precio: 45000,
+            stock: 10,
+            categoria: "TC",
+            descripcion: "Torta de chocolate deliciosa"
+        }
+    ];
+    
+    localStorage.setItem("usuarios", JSON.stringify(usuariosEjemplo));
+    localStorage.setItem("productos", JSON.stringify(productosEjemplo));
+    
+    alert('✅ Datos de prueba agregados');
+    
+    // Recargar si estamos en las páginas correspondientes
+    if (document.getElementById('tablaUsuarios')) cargarUsuarios();
+    if (document.getElementById('tablaProductos')) cargarProductos();
+};
+// =======================
+// FUNCIÓN DE PRUEBA
+// =======================
+
+window.probarFunciones = function() {
+    console.log('=== 🧪 PROBANDO FUNCIONES ===');
+    console.log('cargarUsuarios:', typeof cargarUsuarios);
+    console.log('eliminarUsuario:', typeof eliminarUsuario);
+    console.log('editarUsuario:', typeof editarUsuario);
+    console.log('cargarProductos:', typeof cargarProductos);
+    console.log('eliminarProducto:', typeof eliminarProducto);
+    console.log('editarProducto:', typeof editarProducto);
+    
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const productos = JSON.parse(localStorage.getItem("productos")) || [];
+    
+    console.log('Usuarios en localStorage:', usuarios);
+    console.log('Productos en localStorage:', productos);
+    console.log('Tabla usuarios existe:', document.getElementById('tablaUsuarios'));
+    console.log('Tabla productos existe:', document.getElementById('tablaProductos'));
+    
+    alert('✅ Revisa la consola (F12) para ver los resultados de la prueba');
+};
