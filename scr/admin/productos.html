@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Panel Administrativo - Mil Sabores</title>
+  <title>Listado de Productos - Admin Mil Sabores</title>
   <link rel="stylesheet" href="../../assets/css_admin/admin_estilos.css">
-  <script src="../../assets/admin_script.js" defer></script>
+  <script src="../../assets/js_admin/admin_script.js" defer></script>
 </head>
 <body>
   <div class="container">
@@ -18,8 +18,22 @@
       </ul>
     </nav>
     <main>
-      <h1>Bienvenido al Panel Administrativo</h1>
-      <p>Desde aquí puedes gestionar los productos y usuarios de la tienda Mil Sabores.</p>
+      <h1>Listado de Productos</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaProductos">
+          <!-- Se llena con JS -->
+        </tbody>
+      </table>
     </main>
   </div>
 </body>

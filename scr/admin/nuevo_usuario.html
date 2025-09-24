@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuevo Usuario - Admin Mil Sabores</title>
+  <link rel="stylesheet" href="../../assets/css_admin/admin_estilos.css">
+  <script src="../../assets/js_admin/admin_script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <h2>Mil Sabores</h2>
+      <ul>
+        <li><a href="productos.html">📦 Productos</a></li>
+        <li><a href="nuevo_producto.html">➕ Nuevo Producto</a></li>
+        <li><a href="usuarios.html">👥 Usuarios</a></li>
+        <li><a href="nuevo_usuario.html">➕ Nuevo Usuario</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h1>Crear Nuevo Usuario</h1>
+      <form id="formUsuario">
+        <label for="run">RUN:</label>
+        <input type="text" id="run" name="run" required>
+        <div class="error" id="errorRun"></div>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" maxlength="50" required>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" maxlength="100" required>
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" maxlength="100" required>
+        <div class="error" id="errorCorreo"></div>
+
+        <label for="tipo">Tipo de usuario:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Seleccione</option>
+          <option value="Administrador">Administrador</option>
+          <option value="Vendedor">Vendedor</option>
+          <option value="Cliente">Cliente</option>
+        </select>
+
+        <label for="region">Región:</label>
+        <select id="region" name="region" required>
+          <option value="">Seleccione región</option>
+          <option value="Metropolitana">Metropolitana</option>
+          <option value="Valparaíso">Valparaíso</option>
+          <option value="Biobío">Biobío</option>
+        </select>
+
+        <label for="comuna">Comuna:</label>
+        <select id="comuna" name="comuna" required>
+          <option value="">Seleccione comuna</option>
+        </select>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" maxlength="300" required>
+
+        <button type="submit">Guardar Usuario</button>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

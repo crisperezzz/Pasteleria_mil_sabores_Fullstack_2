@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuevo Producto - Admin Mil Sabores</title>
+  <link rel="stylesheet" href="../../assets/css_admin/admin_estilos.css">
+  <script src="../../assets/js_admin/admin_script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <h2>Mil Sabores</h2>
+      <ul>
+        <li><a href="productos.html">📦 Productos</a></li>
+        <li><a href="nuevo_producto.html">➕ Nuevo Producto</a></li>
+        <li><a href="usuarios.html">👥 Usuarios</a></li>
+        <li><a href="nuevo_usuario.html">➕ Nuevo Usuario</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h1>Crear Nuevo Producto</h1>
+      <form id="formProducto">
+        <label>Código del producto:</label>
+        <input type="text" id="codigo" required minlength="3">
+
+        <label>Nombre:</label>
+        <input type="text" id="nombre" required maxlength="100">
+
+        <label>Descripción:</label>
+        <textarea id="descripcion" maxlength="500"></textarea>
+
+        <label>Precio:</label>
+        <input type="number" id="precio" required min="0" step="0.01">
+
+        <label>Stock:</label>
+        <input type="number" id="stock" required min="0" step="1">
+
+        <label>Stock crítico (opcional):</label>
+        <input type="number" id="stockCritico" min="0" step="1">
+
+        <label>Categoría:</label>
+        <select id="categoria" required>
+          <option value="">Selecciona una categoría</option>
+          <option value="TC">Tortas Cuadradas</option>
+          <option value="TT">Tortas Circulares</option>
+          <option value="PI">Postres Individuales</option>
+          <option value="PSA">Productos Sin Azúcar</option>
+          <option value="PT">Pastelería Tradicional</option>
+          <option value="PG">Productos Sin Gluten</option>
+          <option value="PV">Productos Veganos</option>
+          <option value="TE">Tortas Especiales</option>
+        </select>
+
+        <label>Imagen (opcional):</label>
+        <input type="file" id="imagen" accept="image/*">
+
+        <button type="submit">Guardar Producto</button>
+      </form>
+    </main>
+  </div>
+</body>
+</html>
